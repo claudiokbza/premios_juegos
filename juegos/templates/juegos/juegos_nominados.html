@@ -1,0 +1,20 @@
+{% extends "juegos/base.html" %}
+
+{% block titulo %}Juegos Nominados{% endblock %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Juegos Nominados en "{{ categoria.nombre }}"</h1>
+    <a href="{% url 'portada_categorias' %}" class="btn btn-secondary">Volver a categorías</a>
+</div>
+
+<ul class="list-group">
+    {% for nominacion in nominaciones %}
+        <li class="list-group-item">
+            <a href="{% url 'detalle_juego' nominacion.juego.id %}">{{ nominacion.juego.titulo }}</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No hay nominaciones para esta categoría aún.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

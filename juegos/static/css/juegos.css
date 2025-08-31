@@ -1,0 +1,29 @@
+/* juegos/static/css/juegos.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 2em;
+    /* Los colores de fondo y texto ahora se manejan con clases de Bootstrap en base.html */
+}
+a {
+    text-decoration: none;
+    color: #8ab4f8; /* Un azul más claro para enlaces en modo oscuro */
+}
+a:hover {
+    color: #c5d9ff; /* Un azul aún más claro al pasar el mouse */
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Pequeño redondeo para las imágenes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+}
+/* Estilo para los list-group-item si quieres un color de fondo diferente al del tema */
+.list-group-item {
+    background-color: #343a40; /* Un gris oscuro */
+    border-color: #495057; /* Borde un poco más claro */
+    color: #f8f9fa; /* Texto claro */
+}
+.list-group-item-action:hover {
+    background-color: #495057; /* Fondo más claro al pasar el mouse */
+}
