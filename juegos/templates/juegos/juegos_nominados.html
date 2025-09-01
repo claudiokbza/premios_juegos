@@ -1,20 +1,37 @@
 {% extends "juegos/base.html" %}
 
-{% block titulo %}Juegos Nominados{% endblock %}
+{% block titulo %}Nominados - {{ categoria.nombre }}{% endblock %}
 
 {% block contenido %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>Juegos Nominados en "{{ categoria.nombre }}"</h1>
-    <a href="{% url 'portada_categorias' %}" class="btn btn-secondary">Volver a categorías</a>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="page-title display-5">Juegos Nominados en “{{ categoria.nombre }}”</h1>
+  <a href="{% url 'portada_categorias' %}" class="btn btn-outline-light">Volver a categorías</a>
 </div>
 
-<ul class="list-group">
-    {% for nominacion in nominaciones %}
-        <li class="list-group-item">
-            <a href="{% url 'detalle_juego' nominacion.juego.id %}">{{ nominacion.juego.titulo }}</a>
-        </li>
-    {% empty %}
-        <li class="list-group-item">No hay nominaciones para esta categoría aún.</li>
+{% if nominaciones %}
+  <div class="row gx-4 gy-4">
+    {% for n in nominaciones %}
+      {% with juego=n.juego %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 text-center">
+          {% if juego.imagen %}
+            <img src="{{ juego.imagen }}" class="card-img-top" alt="{{ juego.titulo }}">
+          {% else %}
+            <img src="https://via.placeholder.com/300x200?text={{ juego.titulo|urlencode }}"
+                 class="card-img-top" alt="{{ juego.titulo }}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-3">{{ juego.titulo }}</h5>
+            <div class="mt-auto d-grid">
+              <a href="{% url 'detalle_juego' juego.id %}" class="btn btn-primary">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endwith %}
     {% endfor %}
-</ul>
+  </div>
+{% else %}
+  <div class="alert alert-secondary">No hay nominaciones para esta categoría aún.</div>
+{% endif %}
 {% endblock %}

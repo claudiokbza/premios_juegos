@@ -1,29 +1,30 @@
-/* juegos/static/css/juegos.css */
+/* Fondo general */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 2em;
-    /* Los colores de fondo y texto ahora se manejan con clases de Bootstrap en base.html */
+  background-color: #0d1117;  /* gris oscuro */
+  color: #e6edf3;
+  font-family: 'Segoe UI', sans-serif;
 }
-a {
-    text-decoration: none;
-    color: #8ab4f8; /* Un azul más claro para enlaces en modo oscuro */
+
+/* Ajustes a las cards */
+.card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
 }
-a:hover {
-    color: #c5d9ff; /* Un azul aún más claro al pasar el mouse */
+
+.card:hover {
+  transform: scale(1.03);
+  border-color: #58a6ff;
 }
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Pequeño redondeo para las imágenes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+
+/* Botones */
+.btn-primary {
+  background-color: #58a6ff;
+  border: none;
 }
-/* Estilo para los list-group-item si quieres un color de fondo diferente al del tema */
-.list-group-item {
-    background-color: #343a40; /* Un gris oscuro */
-    border-color: #495057; /* Borde un poco más claro */
-    color: #f8f9fa; /* Texto claro */
+
+.btn-primary:hover {
+  background-color: #1f6feb;
 }
-.list-group-item-action:hover {
-    background-color: #495057; /* Fondo más claro al pasar el mouse */
-}
+
