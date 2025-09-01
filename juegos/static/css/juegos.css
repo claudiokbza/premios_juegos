@@ -28,3 +28,10 @@ body {
   background-color: #1f6feb;
 }
 
+footer {
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+footer small {
+  color: #9da7b4;
+}
